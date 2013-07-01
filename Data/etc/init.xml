@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--DOCTYPE CLASSLIST SYSTEM "init.dtd" -->
+<!-- init.d -->
+<!--  INFeReNCZy's first process (init) configuration file.-->
+<!--  It contains every class/process that will be started at boot time.-->
+<CLASSLIST>
+<CLASSNAME>com.javamercenary.ai.inferenczy.core.DBConnection</CLASSNAME>
+<!-- <CLASSNAME>com.javamercenary.ai.inferenczy.core.XMLReader</CLASSNAME>-->
+<!-- <CLASSNAME>com.javamercenary.ai.inferenczy.core.XMLWriter</CLASSNAME>-->
+<!-- <CLASSNAME>com.javamercenary.ai.inferenczy.core.IServer</CLASSNAME>-->
+</CLASSLIST>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE EXPERT_SYSTEM SYSTEM "expert_system.dtd">
+<EXPERT_SYSTEM>
+	<EXPERT NAME="first_system"  VERSION="1.0">
+		<HEADER>
+			<MODULEDEF>first_system</MODULEDEF>
+		</HEADER>
+		
+		<!-- OBJECT DEFINITIONS -->
+		<OBJECTS>
+			<OBJECT_DEFINITION NAME="person" EXTENDS="" IMPLEMENTS="">
+				<ATTRIBUTES NAME="name" TYPE="String" />
+				<ATTRIBUTES NAME="age" TYPE="int" />
+			</OBJECT_DEFINITION>
+			<OBJECT_DEFINITION NAME="job" EXTENDS="" IMPLEMENTS="">
+				<ATTRIBUTES NAME="name" TYPE="String" />
+				<ATTRIBUTES NAME="salary" TYPE="float" />
+			</OBJECT_DEFINITION>		
+		</OBJECTS>
+		
+		<!-- INSTANCES -->
+		<INSTANCES>			
+			<INSTANCE  NAME="instance1" OBJECT="person" >
+				<ATTR_VALUES VALUE="Pedro Alcazar" TYPE="String" />
+				<ATTR_VALUES VALUE="23" TYPE="int" />				
+			</INSTANCE>
+			<INSTANCE  NAME="instance2" OBJECT="person" >
+				<ATTR_VALUES VALUE="Robert de Niro" TYPE="String" />
+				<ATTR_VALUES VALUE="61" TYPE="int" />				
+			</INSTANCE>
+			<INSTANCE  NAME="instance3" OBJECT="person" >
+				<ATTR_VALUES VALUE="Al Pacino" TYPE="String" />
+				<ATTR_VALUES VALUE="63" TYPE="int" />				
+			</INSTANCE>
+	   </INSTANCES>
+	</EXPERT>
+</EXPERT_SYSTEM>

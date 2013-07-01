@@ -1,0 +1,478 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="12.0">
+  <zoom_level>8</zoom_level>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>416</x>
+      <y>840</y>
+      <w>352</w>
+      <h>184</h>
+    </coordinates>
+    <panel_attributes>com.javamercenary.ai.inferenczy.core::SystemXMLReader
+--
+-parser = new com.sun.xml.parser.Parser(): Parser
+-doc = null: Document
+-builder = new XmlDocumentBuilder(): XmlDocumentBuilder
+-nl = null: NodeList
+-_SI = null: SystemInterface
+--
++SystemXMLReader(): ctor
++setProperties(SystemInterface _SI): void
++initParse(String filename, String[] elements): Hashtable
++initParse(String filename, String field): Vector
++main(String[] args): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>736</x>
+      <y>480</y>
+      <w>32</w>
+      <h>104</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>24;24;24;96</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>376</x>
+      <y>1184</y>
+      <w>360</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+com.javamercenary.ai.inferenczy.core::DBOperationsInterface
+--
+--
++selectData(String select): ResultSet
++insertData(String insert): int
++updateData(String update): int
++deleteData(String delete): int
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>1104</x>
+      <y>104</y>
+      <w>624</w>
+      <h>344</h>
+    </coordinates>
+    <panel_attributes>/com.javamercenary.ai.inferenczy.core::Process/
+--
+-PID = -1: int
+-UID = 0: int
+-GID = 0: int
+-STATE = 0: int
+-PRIORITY = 0: int
+-P_INFO = "": String
+-START_DATE: long
+-_SI = null: SystemInterface
+--
++Process(): ctor
++Process(int PID, int UID, int GID, int STATE, int PRIORITY, String P_INFO, SystemInterface _SI): ctor
++setAttributes(int PID, int UID, int GID, int STATE, int PRIORITY, String P_INFO, SystemInterface _SI): boolean
++getPID(): int
++getUID(): int
++getGID(): int
++getSTATE(): int
++setSTATE(int state): int
++getPRIORITY(): int
++setPRIORITY(int priority): int
++getSTART_DATE(): long
++getP_INFO(): String
++get_SI(): SystemInterface
++setP_INFO(String p_info): String
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>712</x>
+      <y>1216</y>
+      <w>136</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>24;24;120;24</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>832</x>
+      <y>888</y>
+      <w>272</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>com.javamercenary.ai.inferenczy.core::Printer
+--
+-_SI = null: SystemInterface
+--
+~Printer(): ctor
++setProperties(SystemInterface _SI): void
++print(int flag, String message): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>1184</x>
+      <y>1032</y>
+      <w>40</w>
+      <h>144</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>24;128;24;24</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>832</x>
+      <y>1160</y>
+      <w>440</w>
+      <h>144</h>
+    </coordinates>
+    <panel_attributes>com.javamercenary.ai.inferenczy.core::DBOperationsSQL
+--
+-conn = null: Connection
+-_SI = null: SystemInterface
+--
++DBOperationsSQL(SystemInterface _SI): ctor
++selectData(String select): com.javamercenary.ai.inferenczy.core.ResultSet
++insertData(String insert): int
++updateData(String update): int
++deleteData(String delete): int
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>840</x>
+      <y>48</y>
+      <w>80</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>Thread</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>496</x>
+      <y>136</y>
+      <w>544</w>
+      <h>368</h>
+    </coordinates>
+    <panel_attributes>com.javamercenary.ai.inferenczy.core::Kernel
+--
+-_PROCESSES = new Hashtable(): Hashtable
+-_SYSTEM_PROPERTIES = new InferenczyProperties(): InferenczyProperties
+-_SI = null: SystemInterface
+-_LOG = new Log(): Log
+-_PRINTER = new Printer(): Printer
+-_XML_READER = new SystemXMLReader(): SystemXMLReader
+-_DBCONNECTION = null: Connection
+-_DBOPERATIONS_INTERFACE = null: DBOperationsInterface
+--
+~Kernel(): ctor
++run(): void
+-loadProperties(): boolean
++getProperties(): InferenczyProperties
++startProcess(String name, int PID, int UID, int GID, int STATE, int PRIORITY, String P_INFO): int
+-addProcess(Process p): boolean
++removeProcess(Integer pid): boolean
++getProcessTable(): Hashtable
++log(int loglevel, String message): boolean
++print(int flag, String message): void
++setDBConnection(Connection conn): void
++getDBConnection(): Connection
++setDBOperationsInterface(DBOperationsInterface dbo): void
++getDBOperationsInterface(): DBOperationsInterface
++readData(String filename, String[] elements): Hashtable
++readData(String filename, String field): Vector
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>848</x>
+      <y>56</y>
+      <w>40</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>24;24;24;80</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>1408</x>
+      <y>424</y>
+      <w>32</w>
+      <h>144</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>24;24;24;136</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>1048</x>
+      <y>1280</y>
+      <w>40</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>24;72;24;24</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>1080</x>
+      <y>912</y>
+      <w>104</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>24;24;88;24</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>672</x>
+      <y>1360</y>
+      <w>288</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>com.javamercenary.ai.inferenczy.core::ResultSet
+--
+--
++ResultSet(): ctor
++getValue(int iRow, String sColumn): Object
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>984</x>
+      <y>1352</y>
+      <w>312</w>
+      <h>128</h>
+    </coordinates>
+    <panel_attributes>com.javamercenary.ai.inferenczy.core::DBConnection
+--
+-_CONNECTION = null: Connection
+--
++DBConnection(): ctor
++run(): void
+-openConnection(): boolean
+-setInterface(): void
++getConnection(): Connection
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>872</x>
+      <y>1280</y>
+      <w>40</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>24;80;24;24</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>1280</x>
+      <y>560</y>
+      <w>544</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>com.javamercenary.ai.inferenczy.core::Init
+--
+--
++Init(): ctor
++Init(int PID, int UID, int GID, int STATE, int PRIORITY, String P_INFO, SystemInterface _SI): ctor
++run(): void
+-loadProcesses(): boolean
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>896</x>
+      <y>40</y>
+      <w>272</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>24;24;256;24;256;64</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>304</x>
+      <y>0</y>
+      <w>264</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>com.javamercenary.ai.inferenczy.core::Boot
+--
+--
+~Boot(): ctor
++main(String args[]): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>744</x>
+      <y>848</y>
+      <w>440</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>24;24;424;24</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>840</x>
+      <y>1008</y>
+      <w>256</w>
+      <h>128</h>
+    </coordinates>
+    <panel_attributes>com.javamercenary.ai.inferenczy.core::Log
+--
+-_SI = null: SystemInterface
+-_LOG_WRITER = null: PrintWriter
+--
+~Log(): ctor
++setProperties(SystemInterface _SI): void
++log(int loglevel, String message): boolean
+-writeLog(String message): boolean
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>0</x>
+      <y>576</y>
+      <w>1160</w>
+      <h>152</h>
+    </coordinates>
+    <panel_attributes>com.javamercenary.ai.inferenczy.core::InferenczyProperties
+--
+-_PROPERTIES = new Hashtable(): Hashtable
+-_PROPERTY_NAMES = new String[] { "system_version", "loglevel", "logfile", "db_type", "multiuser_y_n", "server_y_n", "language", "jdbc_driver", "jdbc_url", "jdbc_user", "jdbc_password", "init.d" }: String[]
+-FILENAME = "Data/etc/inferenczy.properties": String
+--
++InferenczyProperties(): ctor
++InferenczyProperties(String FILENAME): ctor
++loadProperties(): boolean
++getProperty(String property): String
++setProperty(String property, String value): boolean
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>424</x>
+      <y>48</y>
+      <w>80</w>
+      <h>192</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>72;184;24;184;24;24</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>1072</x>
+      <y>1016</y>
+      <w>112</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>24;24;96;24</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>1016</x>
+      <y>448</y>
+      <w>216</w>
+      <h>392</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>200;376;200;24;24;24</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>1240</x>
+      <y>424</y>
+      <w>40</w>
+      <h>416</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>24;24;24;400</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>1168</x>
+      <y>824</y>
+      <w>544</w>
+      <h>232</h>
+    </coordinates>
+    <panel_attributes>com.javamercenary.ai.inferenczy.core::SystemInterface
+--
+-_KERNEL = null: Kernel
+--
++SystemInterface(Kernel _KERNEL): ctor
++getProperty(String property): String
++setProperty(String property, String value): boolean
++getProcessTable(): Hashtable
++log(int loglevel, String message): boolean
++print(int flag, String message): void
++startProcess(String name, int PID, int UID, int GID, int STATE, int PRIORITY, String P_INFO): int
++setDBConnection(Connection conn): void
++getDBConnection(): Connection
++setDBOperationsInterface(DBOperationsInterface dbo): void
++getDBOperationsInterface(): DBOperationsInterface
++readData(String filename, String[] elements): Hashtable
++readData(String filename, String field): Vector
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
