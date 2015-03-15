@@ -1,0 +1,1 @@
+An attempt to write an OS written entirely in Java. It has some sort of inference engine which would use programs written in XML. Check the DTD in Data/etc folders and you will realize of the insanity level of this stuff.
